@@ -20,7 +20,10 @@ export async function downloadFile(request: HttpRequest, context: InvocationCont
     
             body: blobBuffer,
             headers: {
-                'Content-Type': properties.contentType
+                'Content-Type': properties.contentType,
+                'Content-Length': properties.contentLength.toString(),
+                'Last-Modified': properties.lastModified.toString(),
+                'ETag': properties.etag,
             }
         };
 
